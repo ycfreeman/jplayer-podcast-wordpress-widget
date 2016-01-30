@@ -1,23 +1,19 @@
 <?php
 /**
- * WordPress Widget Boilerplate
- *
- * The WordPress Widget Boilerplate is an organized, maintainable boilerplate for building widgets using WordPress best practices.
- *
- * @package   Widget_Name
- * @author    Your Name <email@example.com>
+ * @package   JPlayer_Podcast
+ * @author    Freeman Man <freeman@ycfreeman.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
+ * @link      http://ycfreeman.com
+ * @copyright 2016 ycfreeman.com
  *
  * @wordpress-plugin
- * Plugin Name:       @TODO
- * Plugin URI:        @TODO
- * Description:       @TODO
+ * Plugin Name:       jPlayer Podcast Widget
+ * Plugin URI:        http://ycfreeman.com
+ * Description:       Widget that use jPlayer to play Podcast RSS playlists
  * Version:           1.0.0
- * Author:            @TODO
- * Author URI:        @TODO
- * Text Domain:       widget-name
+ * Author:            Freeman Man
+ * Author URI:        http://ycfreeman.com
+ * Text Domain:       jplayer-podcast
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /lang
@@ -29,11 +25,9 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
 }
 
-// TODO: change 'Widget_Name' to the name of your plugin
-class Widget_Name extends WP_Widget {
+class JPlayer_Podcast extends WP_Widget {
 
     /**
-     * @TODO - Rename "widget-name" to the name your your widget
      *
      * Unique identifier for your widget.
      *
@@ -46,7 +40,7 @@ class Widget_Name extends WP_Widget {
      *
      * @var      string
      */
-    protected $widget_slug = 'widget-name';
+    protected $widget_slug = 'jplayer-podcast';
 
 	/*--------------------------------------------------*/
 	/* Constructor
@@ -259,5 +253,4 @@ class Widget_Name extends WP_Widget {
 
 } // end class
 
-// TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', create_function( '', 'register_widget("Widget_Name");' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget("JPlayer_Podcast");' ) );
