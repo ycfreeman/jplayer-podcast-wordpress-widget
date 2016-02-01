@@ -10,7 +10,7 @@
  * Plugin Name:       jPlayer Podcast Widget
  * Plugin URI:        http://ycfreeman.com
  * Description:       Widget that use jPlayer to play Podcast RSS playlists
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Freeman Man
  * Author URI:        http://ycfreeman.com
  * Text Domain:       jplayer-podcast

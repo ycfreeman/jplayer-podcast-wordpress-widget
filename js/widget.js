@@ -1,5 +1,10 @@
 (function (window, $, data, undefined) {
 	'use strict';
+
+	var fileExtension = function( url ) {
+		return url.split('.').pop().split(/\#|\?/)[0];
+	};
+
 	jQuery(function () {
 		var player = new jPlayerPlaylist({
 				jPlayer: data.jPlayer,
@@ -19,11 +24,39 @@
 
 		// Call podparser php
 		function loadPodcast(url, count) {
-			$.getJSON(data.podcastParserPath + "?callback=?&url=" + url + "&count=" + count,
-				{},
-				function (playlist) {
-					player.setPlaylist(playlist);
+			// if file_get_contents works
+			//$.getJSON(data.podcastParserPath + "?callback=?&url=" + url + "&count=" + count,
+			//	{},
+			//	function (playlist) {
+			//		player.setPlaylist(playlist);
+			//	});
+
+			// use jquery to parse
+
+			$.get(url, function(data){
+				var $xml = $(data);
+				var playlist = [];
+				$xml.find("item").each(function(){
+					var $this = $(this),
+						item= {
+							title: $this.find("title").text(),
+							link: $this.find("link").text(),
+							enclosure: $this.find("enclosure").attr('url'),
+							description: $this.find("description").text(),
+							pubDate: $this.find("pubDate").text(),
+							author: $this.find("author").text()
+						};
+
+					var podcastItem = {
+						title: item.title
+					};
+					podcastItem[fileExtension(item.enclosure)] = item.enclosure;
+
+					playlist.push(podcastItem);
+
 				});
+				player.setPlaylist(playlist);
+			})
 		}
 
 	});
