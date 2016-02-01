@@ -15,8 +15,8 @@ Widget that use jPlayer to play Podcast RSS playlists
 
 Widget that use jPlayer to play Podcast RSS playlists
 
-* [Issue Tracker](https://github.com/ycfreeman/jplayer-podcast-widget/issues)
-* [Source Code](https://github.com/ycfreeman/jplayer-podcast-widget)
+* [Issue Tracker](https://github.com/ycfreeman/jplayer-podcast-wordpress-widget/issues)
+* [Source Code](https://github.com/ycfreeman/jplayer-podcast-wordpress-widget)
 
 == Installation ==
 

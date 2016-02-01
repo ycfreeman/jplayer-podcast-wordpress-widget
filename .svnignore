@@ -1,0 +1,8 @@
+bin
+bin/*
+tests
+tests/*
+phpunit.xml
+.travis.yml
+.idea
+.idea/*
