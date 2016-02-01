@@ -281,8 +281,6 @@ class JPlayer_Podcast extends WP_Widget
     {
         wp_enqueue_script($this->get_widget_slug() . '-script-jplayer', plugins_url('jplayer/jplayer/jquery.jplayer.min.js', __FILE__), array('jquery'));
         wp_enqueue_script($this->get_widget_slug() . '-script-jplayer-playlist', plugins_url('jplayer/add-on/jplayer.playlist.min.js', __FILE__), array('jquery'));
-        wp_enqueue_script($this->get_widget_slug() . '-script', plugins_url('js/widget.js', __FILE__), array('jquery'));
-
 
     } // end register_widget_scripts
 
