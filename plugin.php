@@ -23,17 +23,13 @@
 $swfPath = plugins_url("jplayer/jplayer/jquery.jplayer.swf", __FILE__);
 $podcastParserPath = plugins_url("assets/podparser.php", __FILE__);
 
-
 // Prevent direct file access
 if (!defined('ABSPATH')) {
     exit;
 }
 
-
-
 class JPlayer_Podcast extends WP_Widget
 {
-
 
     /**
      *
@@ -139,12 +135,11 @@ class JPlayer_Podcast extends WP_Widget
         $widget_string = $before_widget;
 
         /* Our variables from the widget settings. */
-        $title = apply_filters( 'widget_title', $instance['title'] );
-
+        $title = apply_filters('widget_title', $instance['title']);
 
         /* Display the widget title if one was input (before and after defined by themes). */
-        if ( !empty($title) ) {
-            $widget_string.= $before_title . $title . $after_title;
+        if (!empty($title)) {
+            $widget_string .= $before_title . $title . $after_title;
         }
 
         ob_start();
@@ -180,9 +175,8 @@ class JPlayer_Podcast extends WP_Widget
 
         $instance['title'] = strip_tags($new_instance['title']);
         $instance['url'] = strip_tags($new_instance['url']);
-
-
-        // TODO: Here is where you update your widget's old values with the new, incoming values
+        $instance['count'] = strip_tags($new_instance['count']);
+        $instance['autoplay'] = strip_tags($new_instance['autoplay']);
 
         return $instance;
 
@@ -197,7 +191,9 @@ class JPlayer_Podcast extends WP_Widget
     {
         $defaults = array(
             'title' => '',
-            'url' => ''
+            'url' => '',
+            'count' => 20,
+            'autoplay' => 1
         );
 
         $instance = wp_parse_args(
@@ -219,7 +215,6 @@ class JPlayer_Podcast extends WP_Widget
     public function widget_textdomain()
     {
 
-        // TODO be sure to change 'widget-name' to the name of *your* plugin
         load_plugin_textdomain($this->get_widget_slug(), false, plugin_dir_path(__FILE__) . 'lang/');
 
     } // end widget_textdomain
@@ -231,7 +226,7 @@ class JPlayer_Podcast extends WP_Widget
      */
     public function activate($network_wide)
     {
-        // TODO define activation functionality here
+
     } // end activate
 
     /**
@@ -241,7 +236,7 @@ class JPlayer_Podcast extends WP_Widget
      */
     public function deactivate($network_wide)
     {
-        // TODO define deactivation functionality here
+
     } // end deactivate
 
     /**

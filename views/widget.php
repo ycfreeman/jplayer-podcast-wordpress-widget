@@ -3,6 +3,9 @@ global $swfPath;
 global $podcastParserPath;
 
 $url =  $instance['url'];
+$podcastCount = $instance['count'];
+$autoPlay = $instance['autoplay'];
+
 ?>
 
 
@@ -48,8 +51,9 @@ $url =  $instance['url'];
                     jPlayer: '#jplayer_<?php echo $widgetId ?>',
                     cssSelectorAncestor: '#jp_container_<?php echo $widgetId ?>'
                 },
-                loadPodcast("<?php echo $url?>"),
+                loadPodcast("<?php echo $url?>", <?php echo $podcastCount;?>),
                 {
+                    playlistOptions: {autoPlay: <?php echo $autoPlay? 'true':'false'?>},
                     swfPath: "<?php echo $swfPath?>",
                     supplied: "mp3,oga,m4a",
                     solution: "flash, html",
@@ -60,8 +64,9 @@ $url =  $instance['url'];
             );
 
             // Call podparser php
-            function loadPodcast(url) {
-                $.getJSON("<?php echo $podcastParserPath;?>?callback=?&url="+url, {},function (playlist){
+            function loadPodcast(url, count) {
+                $.getJSON("<?php echo $podcastParserPath;?>?callback=?&url="+url+"&count="+count, {},function (playlist){
+                    console.log(playlist);
                     player.setPlaylist(playlist);
                 });
             }
