@@ -1,4 +1,4 @@
-=== Widget Name ===
+=== JPlayer Podcast Widget ===
 
 Contributors: ycfreeman
 Donate link: https://www.paypal.me/ycfreeman

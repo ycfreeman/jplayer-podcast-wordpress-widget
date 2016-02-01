@@ -19,13 +19,21 @@
  * Domain Path:       /lang
  * GitHub Plugin URI: https://github.com/<owner>/<repo>
  */
- 
- // Prevent direct file access
-if ( ! defined ( 'ABSPATH' ) ) {
-	exit;
+
+$swfPath = plugins_url("jplayer/jplayer/jquery.jplayer.swf", __FILE__);
+$podcastParserPath = plugins_url("assets/podparser.php", __FILE__);
+
+
+// Prevent direct file access
+if (!defined('ABSPATH')) {
+    exit;
 }
 
-class JPlayer_Podcast extends WP_Widget {
+
+
+class JPlayer_Podcast extends WP_Widget
+{
+
 
     /**
      *
@@ -42,47 +50,48 @@ class JPlayer_Podcast extends WP_Widget {
      */
     protected $widget_slug = 'jplayer-podcast';
 
-	/*--------------------------------------------------*/
-	/* Constructor
-	/*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+    /* Constructor
+    /*--------------------------------------------------*/
 
-	/**
-	 * Specifies the classname and description, instantiates the widget,
-	 * loads localization files, and includes necessary stylesheets and JavaScript.
-	 */
-	public function __construct() {
+    /**
+     * Specifies the classname and description, instantiates the widget,
+     * loads localization files, and includes necessary stylesheets and JavaScript.
+     */
+    public function __construct()
+    {
 
-		// load plugin text domain
-		add_action( 'init', array( $this, 'widget_textdomain' ) );
 
-		// Hooks fired when the Widget is activated and deactivated
-		register_activation_hook( __FILE__, array( $this, 'activate' ) );
-		register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
+        // load plugin text domain
+        add_action('init', array($this, 'widget_textdomain'));
 
-		// TODO: update description
-		parent::__construct(
-			$this->get_widget_slug(),
-			__( 'Widget Name', $this->get_widget_slug() ),
-			array(
-				'classname'  => $this->get_widget_slug().'-class',
-				'description' => __( 'Short description of the widget goes here.', $this->get_widget_slug() )
-			)
-		);
+        // Hooks fired when the Widget is activated and deactivated
+        register_activation_hook(__FILE__, array($this, 'activate'));
+        register_deactivation_hook(__FILE__, array($this, 'deactivate'));
 
-		// Register admin styles and scripts
-		add_action( 'admin_print_styles', array( $this, 'register_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
+        parent::__construct(
+            $this->get_widget_slug(),
+            __('jPlayer Podcast', $this->get_widget_slug()),
+            array(
+                'classname' => $this->get_widget_slug() . '-class',
+                'description' => __('Widget that use jPlayer to play Podcast RSS', $this->get_widget_slug())
+            )
+        );
 
-		// Register site styles and scripts
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_scripts' ) );
+        // Register admin styles and scripts
+        add_action('admin_print_styles', array($this, 'register_admin_styles'));
+        add_action('admin_enqueue_scripts', array($this, 'register_admin_scripts'));
 
-		// Refreshing the widget's cached output with each new post
-		add_action( 'save_post',    array( $this, 'flush_widget_cache' ) );
-		add_action( 'deleted_post', array( $this, 'flush_widget_cache' ) );
-		add_action( 'switch_theme', array( $this, 'flush_widget_cache' ) );
+        // Register site styles and scripts
+        add_action('wp_enqueue_scripts', array($this, 'register_widget_styles'));
+        add_action('wp_enqueue_scripts', array($this, 'register_widget_scripts'));
 
-	} // end constructor
+        // Refreshing the widget's cached output with each new post
+        add_action('save_post', array($this, 'flush_widget_cache'));
+        add_action('deleted_post', array($this, 'flush_widget_cache'));
+        add_action('switch_theme', array($this, 'flush_widget_cache'));
+
+    } // end constructor
 
 
     /**
@@ -92,165 +101,196 @@ class JPlayer_Podcast extends WP_Widget {
      *
      * @return    Plugin slug variable.
      */
-    public function get_widget_slug() {
+    public function get_widget_slug()
+    {
         return $this->widget_slug;
     }
 
-	/*--------------------------------------------------*/
-	/* Widget API Functions
-	/*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+    /* Widget API Functions
+    /*--------------------------------------------------*/
 
-	/**
-	 * Outputs the content of the widget.
-	 *
-	 * @param array args  The array of form elements
-	 * @param array instance The current instance of the widget
-	 */
-	public function widget( $args, $instance ) {
+    /**
+     * Outputs the content of the widget.
+     *
+     * @param array args  The array of form elements
+     * @param array instance The current instance of the widget
+     */
+    public function widget($args, $instance)
+    {
+        // Check if there is a cached output
+        $cache = wp_cache_get($this->get_widget_slug(), 'widget');
 
-		
-		// Check if there is a cached output
-		$cache = wp_cache_get( $this->get_widget_slug(), 'widget' );
+        if (!is_array($cache))
+            $cache = array();
 
-		if ( !is_array( $cache ) )
-			$cache = array();
+        if (!isset ($args['widget_id']))
+            $args['widget_id'] = $this->id;
 
-		if ( ! isset ( $args['widget_id'] ) )
-			$args['widget_id'] = $this->id;
+        $widgetId = $args['widget_id'];
 
-		if ( isset ( $cache[ $args['widget_id'] ] ) )
-			return print $cache[ $args['widget_id'] ];
-		
-		// go on with your widget logic, put everything into a string and …
+        if (isset ($cache[$args['widget_id']]))
+            return print $cache[$args['widget_id']];
 
+        // go on with your widget logic, put everything into a string and …
 
-		extract( $args, EXTR_SKIP );
+        extract($args, EXTR_SKIP);
 
-		$widget_string = $before_widget;
+        $widget_string = $before_widget;
 
-		// TODO: Here is where you manipulate your widget's values based on their input fields
-		ob_start();
-		include( plugin_dir_path( __FILE__ ) . 'views/widget.php' );
-		$widget_string .= ob_get_clean();
-		$widget_string .= $after_widget;
+        /* Our variables from the widget settings. */
+        $title = apply_filters( 'widget_title', $instance['title'] );
 
 
-		$cache[ $args['widget_id'] ] = $widget_string;
+        /* Display the widget title if one was input (before and after defined by themes). */
+        if ( !empty($title) ) {
+            $widget_string.= $before_title . $title . $after_title;
+        }
 
-		wp_cache_set( $this->get_widget_slug(), $cache, 'widget' );
+        ob_start();
+        include(plugin_dir_path(__FILE__) . 'views/widget.php');
+        $widget_string .= ob_get_clean();
+        $widget_string .= $after_widget;
 
-		print $widget_string;
 
-	} // end widget
-	
-	
-	public function flush_widget_cache() 
-	{
-    	wp_cache_delete( $this->get_widget_slug(), 'widget' );
-	}
-	/**
-	 * Processes the widget's options to be saved.
-	 *
-	 * @param array new_instance The new instance of values to be generated via the update.
-	 * @param array old_instance The previous instance of values before the update.
-	 */
-	public function update( $new_instance, $old_instance ) {
+        $cache[$args['widget_id']] = $widget_string;
 
-		$instance = $old_instance;
+        wp_cache_set($this->get_widget_slug(), $cache, 'widget');
 
-		// TODO: Here is where you update your widget's old values with the new, incoming values
+        print $widget_string;
 
-		return $instance;
+    } // end widget
 
-	} // end widget
 
-	/**
-	 * Generates the administration form for the widget.
-	 *
-	 * @param array instance The array of keys and values for the widget.
-	 */
-	public function form( $instance ) {
+    public function flush_widget_cache()
+    {
+        wp_cache_delete($this->get_widget_slug(), 'widget');
+    }
 
-		// TODO: Define default values for your variables
-		$instance = wp_parse_args(
-			(array) $instance
-		);
+    /**
+     * Processes the widget's options to be saved.
+     *
+     * @param array new_instance The new instance of values to be generated via the update.
+     * @param array old_instance The previous instance of values before the update.
+     */
+    public function update($new_instance, $old_instance)
+    {
 
-		// TODO: Store the values of the widget in their own variable
+        $instance = $old_instance;
 
-		// Display the admin form
-		include( plugin_dir_path(__FILE__) . 'views/admin.php' );
+        $instance['title'] = strip_tags($new_instance['title']);
+        $instance['url'] = strip_tags($new_instance['url']);
 
-	} // end form
 
-	/*--------------------------------------------------*/
-	/* Public Functions
-	/*--------------------------------------------------*/
+        // TODO: Here is where you update your widget's old values with the new, incoming values
 
-	/**
-	 * Loads the Widget's text domain for localization and translation.
-	 */
-	public function widget_textdomain() {
+        return $instance;
 
-		// TODO be sure to change 'widget-name' to the name of *your* plugin
-		load_plugin_textdomain( $this->get_widget_slug(), false, plugin_dir_path( __FILE__ ) . 'lang/' );
+    } // end widget
 
-	} // end widget_textdomain
+    /**
+     * Generates the administration form for the widget.
+     *
+     * @param array instance The array of keys and values for the widget.
+     */
+    public function form($instance)
+    {
+        $defaults = array(
+            'title' => '',
+            'url' => ''
+        );
 
-	/**
-	 * Fired when the plugin is activated.
-	 *
-	 * @param  boolean $network_wide True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
-	 */
-	public function activate( $network_wide ) {
-		// TODO define activation functionality here
-	} // end activate
+        $instance = wp_parse_args(
+            (array)$instance, $defaults
+        );
 
-	/**
-	 * Fired when the plugin is deactivated.
-	 *
-	 * @param boolean $network_wide True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
-	 */
-	public function deactivate( $network_wide ) {
-		// TODO define deactivation functionality here
-	} // end deactivate
+        // Display the admin form
+        include(plugin_dir_path(__FILE__) . 'views/admin.php');
 
-	/**
-	 * Registers and enqueues admin-specific styles.
-	 */
-	public function register_admin_styles() {
+    } // end form
 
-		wp_enqueue_style( $this->get_widget_slug().'-admin-styles', plugins_url( 'css/admin.css', __FILE__ ) );
+    /*--------------------------------------------------*/
+    /* Public Functions
+    /*--------------------------------------------------*/
 
-	} // end register_admin_styles
+    /**
+     * Loads the Widget's text domain for localization and translation.
+     */
+    public function widget_textdomain()
+    {
 
-	/**
-	 * Registers and enqueues admin-specific JavaScript.
-	 */
-	public function register_admin_scripts() {
+        // TODO be sure to change 'widget-name' to the name of *your* plugin
+        load_plugin_textdomain($this->get_widget_slug(), false, plugin_dir_path(__FILE__) . 'lang/');
 
-		wp_enqueue_script( $this->get_widget_slug().'-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array('jquery') );
+    } // end widget_textdomain
 
-	} // end register_admin_scripts
+    /**
+     * Fired when the plugin is activated.
+     *
+     * @param  boolean $network_wide True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
+     */
+    public function activate($network_wide)
+    {
+        // TODO define activation functionality here
+    } // end activate
 
-	/**
-	 * Registers and enqueues widget-specific styles.
-	 */
-	public function register_widget_styles() {
+    /**
+     * Fired when the plugin is deactivated.
+     *
+     * @param boolean $network_wide True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
+     */
+    public function deactivate($network_wide)
+    {
+        // TODO define deactivation functionality here
+    } // end deactivate
 
-		wp_enqueue_style( $this->get_widget_slug().'-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
+    /**
+     * Registers and enqueues admin-specific styles.
+     */
+    public function register_admin_styles()
+    {
 
-	} // end register_widget_styles
+        wp_enqueue_style($this->get_widget_slug() . '-admin-styles', plugins_url('css/admin.css', __FILE__));
 
-	/**
-	 * Registers and enqueues widget-specific scripts.
-	 */
-	public function register_widget_scripts() {
+    } // end register_admin_styles
 
-		wp_enqueue_script( $this->get_widget_slug().'-script', plugins_url( 'js/widget.js', __FILE__ ), array('jquery') );
+    /**
+     * Registers and enqueues admin-specific JavaScript.
+     */
+    public function register_admin_scripts()
+    {
 
-	} // end register_widget_scripts
+        wp_enqueue_script($this->get_widget_slug() . '-admin-script', plugins_url('js/admin.js', __FILE__), array('jquery'));
+
+    } // end register_admin_scripts
+
+    /**
+     * Registers and enqueues widget-specific styles.
+     */
+    public function register_widget_styles()
+    {
+
+        wp_enqueue_style($this->get_widget_slug() . '-widget-styles', plugins_url('css/widget.css', __FILE__));
+        wp_enqueue_style($this->get_widget_slug() . "-widget-styles-theme-font",
+            plugins_url("jplayer/skin/pixels/css/themicons.css", __FILE__));
+        wp_enqueue_style($this->get_widget_slug() . "-widget-styles-theme",
+            plugins_url("jplayer/skin/pixels/css/style.css", __FILE__));
+
+
+    } // end register_widget_styles
+
+    /**
+     * Registers and enqueues widget-specific scripts.
+     */
+    public function register_widget_scripts()
+    {
+        wp_enqueue_script($this->get_widget_slug() . '-script-jplayer', plugins_url('jplayer/jplayer/jquery.jplayer.min.js', __FILE__), array('jquery'));
+        wp_enqueue_script($this->get_widget_slug() . '-script-jplayer-playlist', plugins_url('jplayer/add-on/jplayer.playlist.min.js', __FILE__), array('jquery'));
+        wp_enqueue_script($this->get_widget_slug() . '-script', plugins_url('js/widget.js', __FILE__), array('jquery'));
+
+
+    } // end register_widget_scripts
 
 } // end class
 
-add_action( 'widgets_init', create_function( '', 'register_widget("JPlayer_Podcast");' ) );
+add_action('widgets_init', create_function('', 'register_widget("JPlayer_Podcast");'));
