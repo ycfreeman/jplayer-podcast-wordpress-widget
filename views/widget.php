@@ -40,6 +40,7 @@ $autoPlay = $instance['autoplay'];
         To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
     </div>
 </div><!-- .jp-audio -->
+<br/>
 
 <script>
 
