@@ -5,6 +5,7 @@ global $podcastParserPath;
 $url = $instance['url'];
 $podcastCount = $instance['count'];
 $autoPlay = $instance['autoplay'];
+$cors = $instance['corsenabled'];
 
 ?>
 
