@@ -1,7 +1,7 @@
 === JPlayer Podcast Widget ===
 
 Contributors: ycfreeman
-Donate link: https://www.paypal.me/ycfreeman
+Donate link: http://ycfreeman.com
 Tags: podcast, jplayer, music player, audio
 Requires at least: 3.3.1
 Tested up to: 4.4.1
@@ -23,9 +23,16 @@ Widget that use jPlayer to play Podcast RSS playlists
 1. Install plugin using Wordpress Plugin page
 1. Drag **jPlayer (Podcast)** to your sidebar
 1. Enter RSS Feed of your podcast
-1. Profit!
+1. Save and Profit!
 
 == Frequently Asked Questions ==
+1. What is is [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) option about?
+-- CORS mode uses jQuery to parse the feed directly, where not all feed servers would allow that
+ while the other one uses PHP to parse the script to javascript then
+ read from it. some website hosting doesn't allow you to do this.
+-- in short, use the one that works for your feed.
+1. Which option is better?
+-- Keep the option unchecked (PHP parser mode) is better, since the PHP parser is more feature packed
 
 
 == Screenshots ==
