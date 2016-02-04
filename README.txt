@@ -1,5 +1,4 @@
 === JPlayer Podcast Widget ===
-
 Contributors: ycfreeman
 Donate link: http://ycfreeman.com
 Tags: podcast, jplayer, music player, audio
