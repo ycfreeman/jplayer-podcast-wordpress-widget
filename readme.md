@@ -3,6 +3,7 @@ JPlayer Podcast Player Wordpress Widget   [![Build Status](https://travis-ci.org
 
 Wordpress widget that use jPlayer to play Podcast RSS playlists
 
+* [Plugin Page @ wordpress.org](https://wordpress.org/plugins/podcast-player-widget/)
 
 Credits
 ===
