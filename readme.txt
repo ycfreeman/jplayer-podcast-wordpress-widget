@@ -4,18 +4,26 @@ Donate link: http://ycfreeman.com
 Tags: podcast, jplayer, music player, audio
 Requires at least: 3.3.1
 Tested up to: 4.4.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Widget that use jPlayer to play Podcast RSS playlists
+Widget that use jPlayer to play Podcast RSS playlists, no BS, just drag, set, and works
 
 == Description ==
 
-Widget that use jPlayer to play Podcast RSS playlists
+Widget that use jPlayer to play Podcast RSS playlists, no BS, just drag, set, and works,
+I'm making a website for radio group, and there are no other plugins that simply play a RSS
+podcast and can put in a widget area, so I just hack one up and share to everyone.
 
 * [Issue Tracker](https://github.com/ycfreeman/jplayer-podcast-wordpress-widget/issues)
 * [Source Code](https://github.com/ycfreeman/jplayer-podcast-wordpress-widget)
+
+## Credits
+
+* http://jplayer.org/
+* https://github.com/onigetoc/Podcast-parser-for-jPlayer
+* https://github.com/lukemcdonald/jplayer-skin-premium-pixels
 
 == Installation ==
 
@@ -37,11 +45,16 @@ Widget that use jPlayer to play Podcast RSS playlists
 [Issue Tracker](https://github.com/ycfreeman/jplayer-podcast-wordpress-widget/issues)
 
 == Screenshots ==
+1. Widget Settings
+
 
 == Changelog ==
 
 = 1.0.0 =
 first public release
+
+= 1.0.1 =
+remove normalize.css from player theme. 
 
 == Upgrade Notice ==
 

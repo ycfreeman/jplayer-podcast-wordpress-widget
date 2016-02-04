@@ -11,7 +11,6 @@
   "author": "Freeman Man",
   "license": "GNUv2",
   "dependencies": {
-    "jplayer": "^2.9.2",
-    "jplayer-premium-pixels": "github:lukemcdonald/jplayer-skin-premium-pixels"
+    "jplayer": "^2.9.2"
   }
 }
