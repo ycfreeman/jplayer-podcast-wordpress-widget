@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "JPlayer Podcast Widget",
   "scripts": {
-    "copy:jplayer-pixels": "mkdir jplayer/skin/pixels && cp -rf node_modules/jplayer-premium-pixels/assets/ jplayer/skin/pixels",
-    "copy:jplayer": "cp -rf node_modules/jplayer/dist/ jplayer/",
+    "copy:jplayer-pixels": "mkdir -p jplayer/skin/pixels && cp -rf node_modules/jplayer-premium-pixels/assets/ jplayer/skin/pixels",
+    "copy:jplayer": "mkdir -p jplayer/ && cp -rf node_modules/jplayer/dist/ jplayer/",
     "install": "npm run copy:jplayer && npm run copy:jplayer-pixels",
     "build": "npm run install"
   },

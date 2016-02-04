@@ -1,4 +1,35 @@
 /**
+ * Icons
+ * -----------------------------------------------------------------------------
+ */
+.jp-button button:before,
+.icon:before {
+  display: inline-block;
+  font-family: "themicons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  letter-spacing: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-transform: none;
+  vertical-align: top;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+/**
+ * Animations
+ * -----------------------------------------------------------------------------
+ */
+@-webkit-keyframes progress-bar {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -7px;
+  }
+}
+/**
  * Player
  * -----------------------------------------------------------------------------
  */
@@ -7,8 +38,6 @@
   width: 0px;
 }
 .jp-audio {
-  font-size: 25px;
-  font-size: 1.6rem;
   margin: 0 auto;
   max-width: 100%;
   padding: 0 1.25em;
@@ -21,6 +50,7 @@
   color: #ffffff;
 }
 .jp-interface {
+  font-size: 16px;
   background-color: #2b2d2d;
   background-repeat: repeat-x;
   background-image: -khtml-gradient(linear, left top, left bottom, from(#4a4c4d), to(#2b2d2d));
@@ -72,8 +102,7 @@
 }
 .jp-play:before,
 .jp-mute:before {
-  font-size: 25px;
-  font-size: 1.6rem;
+  font-size: 16px;
   line-height: 1.875em;
   position: absolute;
   top: 0;
@@ -197,8 +226,6 @@
   background-color: #4a4c4d;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   border-radius: 0 0 3px 3px;
-  font-size: 19px;
-  font-size: 1.2rem;
   margin: 0 auto;
 }
 .jp-playlist a {

@@ -4,7 +4,7 @@ Donate link: http://ycfreeman.com
 Tags: podcast, jplayer, music player, audio
 Requires at least: 3.3.1
 Tested up to: 4.4.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,7 +54,10 @@ podcast and can put in a widget area, so I just hack one up and share to everyon
 first public release
 
 = 1.0.1 =
-remove normalize.css from player theme. 
+remove normalize.css from player theme.
+
+= 1.0.2 =
+bug fixes
 
 == Upgrade Notice ==
 

@@ -5,7 +5,7 @@ global $podcastParserPath;
 $url = $instance['url'];
 $podcastCount = $instance['count'];
 $autoPlay = $instance['autoplay'];
-$cors = $instance['corsenabled'];
+$corsenabled = $instance['corsenabled'];
 
 ?>
 
@@ -14,7 +14,7 @@ $cors = $instance['corsenabled'];
     <div id="jp_container_<?php echo $widgetId ?>" class="jp-audio" role="application" aria-label="media player">
         <div class="jp-interface">
             <div class="jp-button jp-playpause-button">
-                <button class="jp-play" role="button" tabindex="0">play</button>
+                <button class="jp-play" role="button" tabindex="0"></button>
             </div>
             <div class="jp-time-rail">
                 <div class="jp-progress">
@@ -24,7 +24,7 @@ $cors = $instance['corsenabled'];
                 </div>
             </div>
             <div class="jp-button jp-volume-button">
-                <button class="jp-mute" role="button" tabindex="0">max volume</button>
+                <button class="jp-mute" role="button" tabindex="0"></button>
             </div>
             <div class="jp-volume-bar">
                 <div class="jp-volume-bar-value"></div>
@@ -51,7 +51,8 @@ $scriptData = array(
     'podcastCount' => $podcastCount,
     'autoPlay' => $autoPlay ? true : false,
     'swfPath' => $swfPath,
-    'podcastParserPath' => $podcastParserPath
+    'podcastParserPath' => $podcastParserPath,
+    'cors' => $corsenabled ? true : false
 );
 
 $instanceScriptHandle = $this->get_widget_slug() . '-script-' . $widgetId;

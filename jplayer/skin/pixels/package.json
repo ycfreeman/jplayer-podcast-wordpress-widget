@@ -1,0 +1,80 @@
+{
+  "_args": [
+    [
+      "lukemcdonald/jplayer-skin-premium-pixels",
+      "/Users/freeman/git-current/wordpress/wp-content/plugins/jplayer-podcast-wordpress-widget"
+    ]
+  ],
+  "_from": "lukemcdonald/jplayer-skin-premium-pixels",
+  "_id": "jplayer-premium-pixels@1.0.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/jplayer-premium-pixels",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/lukemcdonald/jplayer-skin-premium-pixels/master/package.json",
+      "gitUrl": "git://github.com/lukemcdonald/jplayer-skin-premium-pixels.git",
+      "httpsUrl": "git+https://github.com/lukemcdonald/jplayer-skin-premium-pixels.git",
+      "shortcut": "github:lukemcdonald/jplayer-skin-premium-pixels",
+      "ssh": "git@github.com:lukemcdonald/jplayer-skin-premium-pixels.git",
+      "sshUrl": "git+ssh://git@github.com/lukemcdonald/jplayer-skin-premium-pixels.git",
+      "type": "github"
+    },
+    "name": null,
+    "raw": "lukemcdonald/jplayer-skin-premium-pixels",
+    "rawSpec": "lukemcdonald/jplayer-skin-premium-pixels",
+    "scope": null,
+    "spec": "github:lukemcdonald/jplayer-skin-premium-pixels",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git://github.com/lukemcdonald/jplayer-skin-premium-pixels.git#2a227a1dce26e97f9446ff7286cd147699510bbe",
+  "_shasum": "aa40415584a666afc03bdfcd481b6a409e4e0dd1",
+  "_shrinkwrap": null,
+  "_spec": "lukemcdonald/jplayer-skin-premium-pixels",
+  "_where": "/Users/freeman/git-current/wordpress/wp-content/plugins/jplayer-podcast-wordpress-widget",
+  "author": {
+    "email": "thelukemcdonald@gmail.com",
+    "name": "Luke McDonald",
+    "url": "http://www.lukemcdonald.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/lukemcdonald/jplayer-premium-pixels/issues"
+  },
+  "dependencies": {
+    "jquery": ">1.7.0"
+  },
+  "description": "Premium Pixels jPlayer Skin",
+  "devDependencies": {
+    "autoprefixer": "^6.1",
+    "grunt": "~0.4.5",
+    "grunt-contrib-concat": "~0.5",
+    "grunt-contrib-jshint": "~0.11",
+    "grunt-contrib-less": "^1.1.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-pixrem": "~0.1",
+    "grunt-postcss": "^0.7"
+  },
+  "gitHead": "2a227a1dce26e97f9446ff7286cd147699510bbe",
+  "homepage": "https://github.com/lukemcdonald/jplayer-premium-pixels",
+  "keywords": [
+    "audio",
+    "jplayer",
+    "jquery-plugin",
+    "media",
+    "player"
+  ],
+  "license": "MIT",
+  "name": "jplayer-premium-pixels",
+  "optionalDependencies": {},
+  "readme": "# Premium Pixels jPlayer Skin\n\nA responsive HTML5 jPlayer skin with playlist.\n\n__Contributors:__ [Luke McDonald](https://twitter.com/thelukemcdonald)  \n__Requires:__ [jPlayer](http://jplayer.org)  \n__License:__ [MIT license](http://opensource.org/licenses/MIT)  \n\nInspired by the Premium Pixels audio player skin designed by Orman Clark.\n\n* [PSD](http://www.premiumpixels.com/freebies/custom-audio-player-skin-psd/)\n* [Demo](http://lukemcdonald.github.io/jplayer-skin-premium-pixels/)\n\n![Premium Pixels jPlayer Skin](screenshot-1.jpg)\n\n## Licenses\n\njPlayer is licensed under the MIT.  \nSource: http://opensource.org/licenses/MIT\n\nThemicons is dual-licensed under the SIL Open Font License 1.1 and GPL-2.0+FE.  \nSource: https://github.com/cedaro/themicons/\n\nPremium Pixels audio player design is licensed under it's own free license.  \nSource: http://www.premiumpixels.com/licensing/\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukemcdonald/jplayer-premium-pixels.git"
+  },
+  "version": "1.0.0"
+}

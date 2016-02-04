@@ -92,7 +92,7 @@ window.demo = window.demo || {};
 					oga: 'http://www.jplayer.org/audio/ogg/Miaow-10-Thin-ice.ogg'
 				}
 			], {
-				swfPath: 'assets/js/vendor',
+				swfPath: 'js/vendor',
 				supplied: 'oga, mp3',
 				wmode: 'window',
 				useStateClassSkin: true,
