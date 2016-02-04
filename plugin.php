@@ -1,23 +1,23 @@
 <?php
 /**
+ * @wordpress-plugin
+ * Plugin Name: jPlayer Podcast Widget
+ * Plugin URI: http://ycfreeman.com
+ * Description: Widget that use jPlayer to play Podcast RSS playlists
+ * Version: 1.0.0
+ * Author: Freeman Man
+ * Author URI: http://ycfreeman.com
+ * Text Domain: jplayer-podcast
+ * License: GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * GitHub Plugin URI: https://github.com/ycfreeman/jplayer-podcast-wordpress-widget
+ *
  * @package   JPlayer_Podcast
  * @author    Freeman Man <freeman@ycfreeman.com>
  * @license   GPL-2.0+
  * @link      http://ycfreeman.com
  * @copyright 2016 ycfreeman.com
  *
- * @wordpress-plugin
- * Plugin Name:       jPlayer Podcast Widget
- * Plugin URI:        http://ycfreeman.com
- * Description:       Widget that use jPlayer to play Podcast RSS playlists
- * Version:           1.0.0
- * Author:            Freeman Man
- * Author URI:        http://ycfreeman.com
- * Text Domain:       jplayer-podcast
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Domain Path:       /lang
- * GitHub Plugin URI: https://github.com/<owner>/<repo>
  */
 
 $swfPath = plugins_url("jplayer/jplayer/jquery.jplayer.swf", __FILE__);
