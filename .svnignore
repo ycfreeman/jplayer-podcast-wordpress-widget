@@ -1,3 +1,9 @@
+.git
+.git/*
+.gitignore
+.svnignore
+.DS_Store
+**/.DS_Store
 bin
 bin/*
 tests
@@ -6,3 +12,5 @@ phpunit.xml
 .travis.yml
 .idea
 .idea/*
+node_modules
+node_modules/*

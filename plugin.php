@@ -10,7 +10,7 @@
  * Plugin Name:       jPlayer Podcast Widget
  * Plugin URI:        http://ycfreeman.com
  * Description:       Widget that use jPlayer to play Podcast RSS playlists
- * Version:           1.0.1
+ * Version:           1.0.0
  * Author:            Freeman Man
  * Author URI:        http://ycfreeman.com
  * Text Domain:       jplayer-podcast
@@ -177,6 +177,8 @@ class JPlayer_Podcast extends WP_Widget
         $instance['url'] = strip_tags($new_instance['url']);
         $instance['count'] = strip_tags($new_instance['count']);
         $instance['autoplay'] = strip_tags($new_instance['autoplay']);
+        $instance['corsenabled'] = strip_tags($new_instance['corsenabled']);
+
 
         return $instance;
 
@@ -193,7 +195,8 @@ class JPlayer_Podcast extends WP_Widget
             'title' => '',
             'url' => '',
             'count' => 20,
-            'autoplay' => 1
+            'autoplay' => 1,
+            'corsenabled' => 0
         );
 
         $instance = wp_parse_args(
