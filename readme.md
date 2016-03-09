@@ -11,8 +11,7 @@ Skin is from [these guys](https://github.com/lukemcdonald/jplayer-skin-premium-p
 
 To check if your feed structure is supported, please check out the [parser](https://github.com/onigetoc/Podcast-parser-for-jPlayer) github page, they have a [demo page](http://scripts.toolurl.com/audio/Podcast-parser-for-jPlayer/demo.html) there.
 
-Credits
-===
+##Credits
 * https://github.com/onigetoc/Podcast-parser-for-jPlayer
 * http://jplayer.org/
 * https://github.com/lukemcdonald/jplayer-skin-premium-pixels
