@@ -5,7 +5,7 @@ Wordpress widget that use jPlayer to play Podcast RSS playlists
 
 * [Plugin Page @ wordpress.org](https://wordpress.org/plugins/podcast-player-widget/)
 
-##Description
+===
 This is a [Wordpress](https://wordpress.org/) plugin that parses your podcast feed, generates a jplayer playlist, then pump it to jplayer and show it in your Wordpress site. It uses [a php script by this guy](https://github.com/onigetoc/Podcast-parser-for-jPlayer) or jquery to read your feed. PHP mode requires your server to support file_get_contents, while jquery mode requires the feed side to support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 The skin is from [these guys](https://github.com/lukemcdonald/jplayer-skin-premium-pixels) and i modified it slightly to get it work without normalize.css.
 
