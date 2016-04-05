@@ -1,5 +1,8 @@
-JPlayer Podcast Player Wordpress Widget   [![Build Status](https://travis-ci.org/ycfreeman/jplayer-podcast-wordpress-widget.svg?branch=master)](https://travis-ci.org/ycfreeman/jplayer-podcast-wordpress-widget)
-===
+JPlayer Podcast Player Wordpress Widget
+==================================================================================================================================================================================================================================================================================================================================================================================================================
+
+[![Build Status](https://travis-ci.org/ycfreeman/jplayer-podcast-wordpress-widget.svg?branch=master)](https://travis-ci.org/ycfreeman/jplayer-podcast-wordpress-widget) 
+[![Codeship Status for ycfreeman/jplayer-podcast-wordpress-widget](https://codeship.com/projects/a68fc4b0-dcfe-0133-0a9b-2682daabcfd0/status?branch=master)](https://codeship.com/projects/144249)
 
 Wordpress widget that use jPlayer to play Podcast RSS playlists
 
