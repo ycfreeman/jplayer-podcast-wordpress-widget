@@ -14,3 +14,6 @@ before_script:
     - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION 
 
 script: phpunit
+
+after_success:
+    - if [ -n "TRAVIS_TAG" ]; then bash deploy-wordpress-plugin.sh podcast-player-widget plugin.php $SVNUSER $SVNPASS; fi
