@@ -9,22 +9,24 @@ env:
     - WP_VERSION=latest WP_MULTISITE=1
     - WP_VERSION=3.7 WP_MULTISITE=0
     - WP_VERSION=3.7 WP_MULTISITE=1
+    - PLUGINSLUG=podcast-player-widget
+    - MAINFILE=plugin.php
 
 before_script:
-    - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION 
+    - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
 
 script:
     - phpunit
     - curl -Lo travis_after_all.py https://raw.github.com/dmakhno/travis_after_all/master/travis_after_all.py
 
 after_success:
-   - python travis_after_all.py https://api.travis-ci.com
+    - python travis_after_all.py https://api.travis-ci.com
     - export $(cat .to_export_back)
     - |
         if [ "$BUILD_LEADER" = "YES" ]; then
           if [ "$BUILD_AGGREGATE_STATUS" = "others_succeeded" ]; then
-            if [ -n "TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-              bash deploy-wordpress-plugin.sh podcast-player-widget plugin.php $SVNUSER $SVNPASS;
+            if ([ -n "TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]); then
+              bash deploy-wordpress-plugin.sh $PLUGINSLUG $MAINFILE $SVNUSER $SVNPASS;
             fi
           else
             echo "Some jobs failed"
