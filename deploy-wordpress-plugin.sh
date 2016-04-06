@@ -5,8 +5,8 @@
 # It is VERY IMPORTANT that this is run from the root of the plugin repo.
 
 # Check for arguments
-if [[ $# -ne 4 ]] ; then
-    echo 'Illegal number of arguments. Please pass <Plugin Slug> <Main File> <SVN Username> <SVN Password>'
+if [[ $# -ne 5 ]] ; then
+    echo 'Illegal number of arguments. Please pass <Plugin Slug> <Main File> <Tag Version> <SVN Username> <SVN Password>'
     exit 1
 fi
 
@@ -35,9 +35,11 @@ SVNPATH="$PLUGINDIR/tmp/svn/$PLUGINSLUG"
 # URL of SVN repo
 SVNURL="http://plugins.svn.wordpress.org/$PLUGINSLUG"
 # User to use for svn repo
-SVNUSER=$3
+SVNUSER=$4
 # Password to be passed when calling the script
-SVNPASS=$4
+SVNPASS=$5
+
+TAGVERSION=$3
 
 # Functions
 # This method deletes unnecessary files and adds the ones we need
@@ -64,10 +66,10 @@ echo "readme.txt version: $READMEVERSION"
 
 if [ "$READMEVERSION" = "trunk" ]; then
 	echo "Version in readme.txt & $MAINFILE don't match, but Stable tag is trunk. Let's proceed..."
-elif [ "$PLUGINVERSION" != "$READMEVERSION" ]; then
+elif ([ "$PLUGINVERSION" != "$READMEVERSION" ] || ["$PLUGINVERSION" != "$TAGVERSION"] || ["$READMEVERSION" != "$TAGVERSION"]); then
 	echo "Version in readme.txt & $MAINFILE don't match. Exiting...."
 	exit 1;
-elif [ "$PLUGINVERSION" = "$READMEVERSION" ]; then
+elif ([ "$PLUGINVERSION" = "$READMEVERSION" ] && ["$TAGVERSION" = "$PLUGINVERSION"]); then
 	echo "Versions match in readme.txt and $MAINFILE. Let's proceed..."
 fi
 
