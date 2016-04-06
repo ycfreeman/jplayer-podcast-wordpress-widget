@@ -5,12 +5,14 @@ php:
     - 5.4
 
 env:
-    - WP_VERSION=latest WP_MULTISITE=0
-    - WP_VERSION=latest WP_MULTISITE=1
-    - WP_VERSION=3.7 WP_MULTISITE=0
-    - WP_VERSION=3.7 WP_MULTISITE=1
-    - PLUGINSLUG=podcast-player-widget
-    - MAINFILE=plugin.php
+    global:
+        - PLUGINSLUG=podcast-player-widget
+        - MAINFILE=plugin.php
+    matrix:
+        - WP_VERSION=latest WP_MULTISITE=0
+        - WP_VERSION=latest WP_MULTISITE=1
+        - WP_VERSION=3.7 WP_MULTISITE=0
+        - WP_VERSION=3.7 WP_MULTISITE=1
 
 before_script:
     - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
