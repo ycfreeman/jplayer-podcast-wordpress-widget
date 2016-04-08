@@ -1,15 +1,14 @@
 JPlayer Podcast Player Wordpress Widget
 ==================================================================================================================================================================================================================================================================================================================================================================================================================
 
-[![Build Status](https://travis-ci.org/ycfreeman/jplayer-podcast-wordpress-widget.svg?branch=master)](https://travis-ci.org/ycfreeman/jplayer-podcast-wordpress-widget) 
-[![Codeship Status for ycfreeman/jplayer-podcast-wordpress-widget](https://codeship.com/projects/a68fc4b0-dcfe-0133-0a9b-2682daabcfd0/status?branch=master)](https://codeship.com/projects/144249)
+[![Build Status](https://travis-ci.org/ycfreeman/jplayer-podcast-wordpress-widget.svg?branch=master)](https://travis-ci.org/ycfreeman/jplayer-podcast-wordpress-widget)
 
 Wordpress widget that use jPlayer to play Podcast RSS playlists
 
 * [Plugin Page @ wordpress.org](https://wordpress.org/plugins/podcast-player-widget/)
 
 ===
-This is a [Wordpress](https://wordpress.org/) plugin that parses your podcast feed, generates a [jplayer](http://jplayer.org/) playlist, pump it to jplayer then show it on your Wordpress site as a widget. It uses [a PHP parser script](https://github.com/onigetoc/Podcast-parser-for-jPlayer) or jQuery to read your feed. 
+This is a [Wordpress](https://wordpress.org/) plugin that parses your podcast feed, generates a [jplayer](http://jplayer.org/) playlist, pump it to jplayer then show it on your Wordpress site as a widget. It uses [a PHP parser script](https://github.com/onigetoc/Podcast-parser-for-jPlayer) or jQuery to read your feed.
 
 PHP mode requires your server to support file_get_contents() to external files, while jquery mode requires the feed to support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 
