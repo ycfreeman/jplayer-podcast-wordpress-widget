@@ -18,6 +18,7 @@ podcast and can put in a widget area, so I just hack one up and share to everyon
 
 * [Issue Tracker](https://github.com/ycfreeman/jplayer-podcast-wordpress-widget/issues)
 * [Source Code](https://github.com/ycfreeman/jplayer-podcast-wordpress-widget)
+* [Demo](http://demo.ycfreeman.com/)
 
 ## Credits
 
@@ -60,4 +61,3 @@ remove normalize.css from player theme.
 bug fixes
 
 == Upgrade Notice ==
-
