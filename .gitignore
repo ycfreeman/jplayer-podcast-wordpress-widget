@@ -52,3 +52,5 @@ crashlytics-build.properties
 
 node_modules/
 **/node_modules/
+
+install-wp-tests.sh
