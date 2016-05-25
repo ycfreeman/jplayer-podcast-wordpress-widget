@@ -28,7 +28,8 @@ after_success:
     - |
         if [ "$BUILD_LEADER" = "YES" ]; then
           if [ "$BUILD_AGGREGATE_STATUS" = "others_succeeded" ]; then
-            if ([ -n "TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]); then
+            if ([ -n "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]); then
+              echo tag=$TRAVIS_TAG;
               bash deploy-wordpress-plugin.sh $PLUGINSLUG $MAINFILE $TRAVIS_TAG $SVNUSER $SVNPASS;
             fi
           else
