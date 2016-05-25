@@ -16,3 +16,5 @@ node_modules
 node_modules/*
 deploy-wordpress-plugin.sh
 install-wp-tests.sh
+readme.md
+package.json
