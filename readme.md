@@ -20,14 +20,10 @@ To check if your feed structure is supported, please check out the [parser's git
 ===
 #FAQ
 
-Check if your feed is supported by the plugin, please test your feed below:
-
-[Test your feed](http://scripts.toolurl.com/audio/Podcast-parser-for-jPlayer/demo.html)
+Check if your feed is supported by the plugin, please **[test your feed here](http://scripts.toolurl.com/audio/Podcast-parser-for-jPlayer/demo.html)**
 
 
-If your feed is from iTunes, you need to use the actual feed url, find it out with the tool below:
-
-[Find iTunes Feed URL](http://jsfiddle.net/onigetoc/2mb5C/show/)
+If your feed is from iTunes, you need to use the actual feed url, **[find it out here](http://jsfiddle.net/onigetoc/2mb5C/show/)**
 
 ##Credits
 * https://github.com/onigetoc/Podcast-parser-for-jPlayer
