@@ -18,7 +18,7 @@ The skin is from [these guys](https://github.com/lukemcdonald/jplayer-skin-premi
 To check if your feed structure is supported, please check out the [parser's github page](https://github.com/onigetoc/Podcast-parser-for-jPlayer) , they have a [demo page](http://scripts.toolurl.com/audio/Podcast-parser-for-jPlayer/demo.html) there.
 
 ===
-#FAQ
+##Trouble Shoot
 
 Check if your feed is supported by the plugin, please **[test your feed here](http://scripts.toolurl.com/audio/Podcast-parser-for-jPlayer/demo.html)**
 
